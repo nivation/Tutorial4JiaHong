@@ -1,5 +1,7 @@
 # Tutorial4JiaHong
 
+[Notion](https://tranquil-discovery-c4b.notion.site/Beta-Keratin-For-JH-94d356249bd34cbf81bcf1552fa0d2ee)
+
 ## **一、了解游老師的實驗 (W1: 9/19-9/23)**
 
 (1)他們想幹嘛->細胞用的骨架
