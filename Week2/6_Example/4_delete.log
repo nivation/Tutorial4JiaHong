@@ -1,0 +1,39 @@
+Info) VMD for WIN32, version 1.9.3 (November 30, 2016)
+Info) http://www.ks.uiuc.edu/Research/vmd/                         
+Info) Email questions and bug reports to vmd@ks.uiuc.edu           
+Info) Please include this reference in published work using VMD:   
+Info)    Humphrey, W., Dalke, A. and Schulten, K., `VMD - Visual   
+Info)    Molecular Dynamics', J. Molec. Graphics 1996, 14.1, 33-38.
+Info) -------------------------------------------------------------
+Info) Multithreading available, 8 CPUs detected.
+Info) Free system memory: 4095MB (100%)
+Info) Creating CUDA device pool and initializing hardware...
+Info) Detected 1 available CUDA accelerator:
+Info) [0] GeForce MX350       5 SM_6.1 @ 0.94 GHz, 2.0GB RAM, KTO, AE5, ZCP
+Info) No joysticks found.  Joystick interface disabled.
+Info) Dynamically loaded 75 plugins in directory:
+Info) C:/Program Files (x86)/University of Illinois/VMD/plugins/WIN32/molfile
+Info) Using plugin psf for structure file 3_solvate.psf
+Info) Analyzing structure ...
+Info)    Atoms: 128190
+Info)    Bonds: 85941
+Info)    Angles: 44801  Dihedrals: 3642  Impropers: 121  Cross-terms: 33
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 42325
+Info)    Waters: 42270
+Info)    Segments: 10
+Info)    Fragments: 42272   Protein: 1   Nucleic: 0
+Info) Using plugin pdb for coordinates from file 3_solvate.pdb
+Info) Finished with coordinate file 3_solvate.pdb.
+0
+atomselect0
+Info) Opened coordinate file 4_delete.pdb for writing.
+Info) Finished with coordinate file 4_delete.pdb.
+Info) Opened coordinate file 4_delete.psf for writing.
+Info) Finished with coordinate file 4_delete.psf.
+Info) VMD for WIN32, version 1.9.3 (November 30, 2016)
+Info) Exiting normally.
+vmd > psfplugin) Detected a Charmm PSF file
+psfplugin) Detected a Charmm PSF EXTEnded file
+psfplugin) Structure requires EXTended PSF format
+psfplugin) Writing angles/dihedrals/impropers...

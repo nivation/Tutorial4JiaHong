@@ -1,0 +1,134 @@
+Info) VMD for WIN32, version 1.9.3 (November 30, 2016)
+Info) http://www.ks.uiuc.edu/Research/vmd/                         
+Info) Email questions and bug reports to vmd@ks.uiuc.edu           
+Info) Please include this reference in published work using VMD:   
+Info)    Humphrey, W., Dalke, A. and Schulten, K., `VMD - Visual   
+Info)    Molecular Dynamics', J. Molec. Graphics 1996, 14.1, 33-38.
+Info) -------------------------------------------------------------
+Info) Multithreading available, 8 CPUs detected.
+Info) Free system memory: 4095MB (100%)
+Info) Creating CUDA device pool and initializing hardware...
+Info) Detected 1 available CUDA accelerator:
+Info) [0] GeForce MX350       5 SM_6.1 @ 0.94 GHz, 2.0GB RAM, KTO, AE5, ZCP
+Info) No joysticks found.  Joystick interface disabled.
+Info) Dynamically loaded 75 plugins in directory:
+Info) C:/Program Files (x86)/University of Illinois/VMD/plugins/WIN32/molfile
+1.7
+Info) generating solute plus one replica of water...
+psfgen) reading structure from psf file autopsf.psf
+psfgen) reading coordinates from pdb file autopsf.pdb
+psfgen) reading structure from psf file C:/Program Files (x86)/University of Illinois/VMD/plugins/noarch/tcl/solvate1.7/wat.psf
+psfgen) psf file does not contain cross-terms
+psfgen) reading coordinates from pdb file C:/Program Files (x86)/University of Illinois/VMD/plugins/noarch/tcl/solvate1.7/wat.pdb
+psfgen) Info: writing psf file combine.psf
+psfgen) total of 29163 atoms
+psfgen) total of 19923 bonds
+psfgen) total of 21053 angles
+psfgen) total of 3642 dihedrals
+psfgen) total of 121 impropers
+psfgen) total of 0 explicit exclusions
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 33 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file combine.pdb
+psfgen) Info: pdb file complete.
+Info) Using plugin psf for structure file combine.psf
+Info) Analyzing structure ...
+Info)    Atoms: 29163
+Info)    Bonds: 19923
+Info)    Angles: 21053  Dihedrals: 3642  Impropers: 121  Cross-terms: 33
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 9316
+Info)    Waters: 9261
+Info)    Segments: 3
+Info)    Fragments: 9263   Protein: 1   Nucleic: 0
+Info) Using plugin pdb for coordinates from file combine.pdb
+Info) Finished with coordinate file combine.pdb.
+Info) generating water residue lists...
+Info) single water residue type, creating residue list...
+Info) replicating 8 water segments, 2 by 2 by 2
+psfgen) reading topology file C:/Program Files (x86)/University of Illinois/VMD/plugins/noarch/tcl/solvate1.7/wat.top
+
+psfgen) >>>>>> Combined CHARMM All-Hydrogen Topology File for <<<<<<<<<
+psfgen) >>>>>>>>> CHARMM22 Proteins and CHARMM27 Lipids <<<<<<<<<<
+psfgen) from
+psfgen) >>>>>>>>CHARMM22 All-Hydrogen Topology File for Proteins <<<<<<
+psfgen) >>>>>>>>>>>>>>>>>>>>> August 1999 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+psfgen) >>>>>>> Direct comments to Alexander D. MacKerell Jr. <<<<<<<<<
+psfgen) >>>>>> 410-706-7442 or email: alex,mmiris.ab.umd.edu  <<<<<<<<<
+psfgen) and
+psfgen)   \\\\\\\ CHARMM27 All-Hydrogen Lipid Topology File ///////
+psfgen)   \\\\\\\\\\\\\\\\\\ Developmental /////////////////////////
+psfgen) 		Alexander D. MacKerell Jr.
+psfgen) 			August 1999
+psfgen)  All comments to ADM jr.  email: alex,mmiris.ab.umd.edu
+psfgen) 		telephone: 410-706-7442
+psfgen) 
+psfgen) Created by CHARMM version 27 1
+psfgen) building segment WT1
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT2
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT3
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT4
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT5
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT6
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT7
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) building segment WT8
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) Info: writing psf file solvate.psf
+psfgen) total of 167187 atoms
+psfgen) total of 111939 bonds
+psfgen) total of 57800 angles
+psfgen) total of 3642 dihedrals
+psfgen) total of 121 impropers
+psfgen) total of 0 explicit exclusions
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 33 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file solvate.pdb
+psfgen) Info: pdb file complete.
+psfgen) clearing structure, preserving topology and aliases
+Info) Using plugin psf for structure file solvate.psf
+Info) Analyzing structure ...
+Info)    Atoms: 167187
+Info)    Bonds: 111939
+Info)    Angles: 57800  Dihedrals: 3642  Impropers: 121  Cross-terms: 33
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 55324
+Info)    Waters: 55269
+Info)    Segments: 10
+Info)    Fragments: 55271   Protein: 1   Nucleic: 0
+Info) Using plugin pdb for coordinates from file solvate.pdb
+Info) Finished with coordinate file solvate.pdb.
+Info) Opened coordinate file solvate.pdb for writing.
+Info) Finished with coordinate file solvate.pdb.
+Info) Extra structure overlap safety check...
+Info) Solvate completed successfully.
+vmd > Info) VMD for WIN32, version 1.9.3 (November 30, 2016)
+Info) Exiting normally.
+psfplugin) Detected a Charmm PSF file
+psfplugin) Detected a Charmm PSF EXTEnded file
+psfplugin) Detected a Charmm PSF file
+psfplugin) Detected a Charmm PSF EXTEnded file

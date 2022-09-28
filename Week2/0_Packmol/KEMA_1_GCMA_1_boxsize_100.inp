@@ -1,0 +1,19 @@
+                                          
+tolerance 2.0                             
+                                          
+filetype pdb                              
+                                          
+output packmol.pdb
+                                          
+add_box_sides 2.0                         
+                                          
+structure ./input_pdb/98_132_1A.pdb       
+  number 1                                
+  inside box 0. 0. 0. 100. 100. 100.      
+end structure                             
+                                          
+structure ./input_pdb/20mer_7GCMA_3GC.pdb 
+  number 1                                
+  inside box 0. 0. 0. 100. 100. 100.      
+end structure                             
+                                          

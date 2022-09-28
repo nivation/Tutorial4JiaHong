@@ -1,0 +1,172 @@
+Info) VMD for WIN32, version 1.9.3 (November 30, 2016)
+Info) http://www.ks.uiuc.edu/Research/vmd/                         
+Info) Email questions and bug reports to vmd@ks.uiuc.edu           
+Info) Please include this reference in published work using VMD:   
+Info)    Humphrey, W., Dalke, A. and Schulten, K., `VMD - Visual   
+Info)    Molecular Dynamics', J. Molec. Graphics 1996, 14.1, 33-38.
+Info) -------------------------------------------------------------
+Info) Multithreading available, 8 CPUs detected.
+Info) Free system memory: 4095MB (100%)
+Info) Creating CUDA device pool and initializing hardware...
+Info) Detected 1 available CUDA accelerator:
+Info) [0] GeForce MX350       5 SM_6.1 @ 0.94 GHz, 2.0GB RAM, KTO, AE5, ZCP
+Info) No joysticks found.  Joystick interface disabled.
+Info) Dynamically loaded 75 plugins in directory:
+Info) C:/Program Files (x86)/University of Illinois/VMD/plugins/WIN32/molfile
+1.4
+psfgen) clearing structure, preserving topology and aliases
+Autoionize) Reading 4_delete.psf/4_delete.pdb...
+psfgen) clearing structure, preserving topology and aliases
+psfgen) reading structure from psf file 4_delete.psf
+psfgen) reading coordinates from pdb file 4_delete.pdb
+Info) Using plugin psf for structure file 4_delete.psf
+Info) Analyzing structure ...
+Info)    Atoms: 1404
+Info)    Bonds: 1417
+Info)    Angles: 2539  Dihedrals: 3642  Impropers: 121  Cross-terms: 33
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 63
+Info)    Waters: 8
+Info)    Segments: 3
+Info)    Fragments: 10   Protein: 1   Nucleic: 0
+Info) Using plugin pdb for coordinates from file 4_delete.pdb
+Info) Finished with coordinate file 4_delete.pdb.
+Autoionize) System net charge before adding ions: -0.9999994803220034e.
+Autoionize) Ions to be placed:
+Autoionize)   1 SOD
+Autoionize)   1 CLA
+Autoionize) Required min distance from molecule: 5A.
+Autoionize) Required min distance between ions: 5A.
+Autoionize) Output file prefix '5_ionzied'.
+Autoionize) Ions will be added to segname ION.
+Autoionize) Obtained positions for 2 ions.
+Autoionize) Tagged 2 water molecules for deletion.
+Autoionize) Deleted 2 water molecules.
+Autoionize) Reading CHARMM topology file...
+psfgen) reading topology file C:/Program Files (x86)/University of Illinois/VMD/plugins/noarch/tcl/readcharmmtop1.2/toppar_water_ions_namd.str
+
+psfgen)  Toplogy and parameter information for water and ions.
+psfgen) 
+psfgen) reading topology from stream file
+psfgen)  Topology for water and ions
+psfgen) 
+psfgen) 31  1
+psfgen)  Parameters for water and ions
+psfgen) 
+psfgen) ERROR!  Failed to parse atom statement.  Line 152: ATOMS
+
+psfgen) duplicate type key HT
+psfgen) duplicate type key HX
+psfgen) duplicate type key OT
+psfgen) duplicate type key OX
+psfgen) duplicate type key LIT
+psfgen) duplicate type key SOD
+psfgen) duplicate type key MG
+psfgen) duplicate type key POT
+psfgen) duplicate type key CAL
+psfgen) duplicate type key RUB
+psfgen) duplicate type key CES
+psfgen) duplicate type key BAR
+psfgen) duplicate type key ZN
+psfgen) duplicate type key CAD
+psfgen) duplicate type key CLA
+psfgen) ERROR!  Failed to parse bond statement.  Line 169: BONDS
+
+psfgen) ERROR!  FAILED TO RECOGNIZE HT.  Line 178: HT    HT      0.0       1.5139  ! from TIPS3P geometry (for SHAKE w/PARAM)
+
+psfgen) ERROR!  FAILED TO RECOGNIZE HT.  Line 179: HT    OT    450.0       0.9572  ! from TIPS3P geometry
+
+psfgen) ERROR!  FAILED TO RECOGNIZE OX.  Line 180: OX    HX    545.0       0.9700  ! hydroxide ion
+
+psfgen) ERROR!  Failed to parse angle statement.  Line 182: ANGLES
+
+psfgen) ERROR!  FAILED TO RECOGNIZE HT.  Line 195: HT   OT   HT     55.0      104.52   ! FROM TIPS3P GEOMETRY
+
+psfgen) ERROR!  Failed to parse dihedral statement.  Line 197: DIHEDRALS
+
+psfgen) ERROR!  Failed to parse improper statement.  Line 210: IMPROPER
+
+psfgen) ERROR!  FAILED TO RECOGNIZE NONBONDED.  Line 221: NONBONDED nbxmod  5 atom cdiel shift vatom vdistance vswitch -
+
+psfgen) ERROR!  FAILED TO RECOGNIZE CUTNB.  Line 222: cutnb 14.0 ctofnb 12.0 ctonnb 10.0 eps 1.0 e14fac 1.0 wmin 1.5
+
+psfgen) ERROR!  FAILED TO RECOGNIZE HT.  Line 225: HT       0.0       -0.046     0.2245
+
+psfgen) ERROR!  FAILED TO RECOGNIZE OT.  Line 226: OT       0.0       -0.1521    1.7682
+
+psfgen) ERROR!  FAILED TO RECOGNIZE OX.  Line 229: OX     0.000000  -0.120000     1.700000 ! ALLOW   POL ION
+
+psfgen) ERROR!  FAILED TO RECOGNIZE HX.  Line 231: HX     0.000000  -0.046000     0.224500 ! ALLOW PEP POL SUL ARO ALC
+
+psfgen) ERROR!  FAILED TO RECOGNIZE LIT.  Line 235: LIT      0.0      -0.00233       1.2975  ! Lithium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE SOD.  Line 237: SOD      0.0       -0.0469    1.41075  ! new CHARMM Sodium 
+
+psfgen) ERROR!  FAILED TO RECOGNIZE MG.  Line 239: MG       0.0       -0.0150    1.18500   ! Magnesium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE POT.  Line 241: POT      0.0       -0.0870    1.76375   ! Potassium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE CAL.  Line 243: CAL      0.0       -0.120      1.367    ! Calcium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE RUB.  Line 245: RUB      0.0000    -0.15      1.90      ! Rubidium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE CES.  Line 247: CES      0.0       -0.1900    2.100     ! Cesium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE BAR.  Line 249: BAR      0.0       -0.150     1.890     ! Barium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE ZN.  Line 251: ZN     0.000000  -0.250000     1.090000 ! Zinc
+
+psfgen) ERROR!  FAILED TO RECOGNIZE CAD.  Line 253: CAD    0.000000  -0.120000     1.357000 ! Cadmium
+
+psfgen) ERROR!  FAILED TO RECOGNIZE CLA.  Line 255: CLA      0.0       -0.150      2.27     ! Chloride
+
+psfgen) ERROR!  FAILED TO RECOGNIZE NBFIX.  Line 258: NBFIX
+
+psfgen) ERROR!  FAILED TO RECOGNIZE SOD.  Line 261: SOD    CLA      -0.083875   3.731 !  From osmotic pressure calibration, J. Phys.Chem.Lett. 1:183-189
+
+psfgen) ERROR!  FAILED TO RECOGNIZE POT.  Line 262: POT    CLA      -0.114236   4.081 !  From osmotic pressure calibration, J. Phys.Chem.Lett. 1:183-189
+
+psfgen)  NBFix between carboxylate and sodium
+psfgen) 
+psfgen) skipping statements at end of file due to end or return statement
+psfgen) building segment ION
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+Autoionize) Randomizing ion positions...
+Autoionize) Assigning ion coordinates...
+psfgen) Info: writing psf file 5_ionzied.psf
+psfgen) total of 1400 atoms
+psfgen) total of 1413 bonds
+psfgen) total of 2537 angles
+psfgen) total of 3642 dihedrals
+psfgen) total of 121 impropers
+psfgen) total of 0 explicit exclusions
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 33 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file 5_ionzied.pdb
+psfgen) Info: pdb file complete.
+Autoionize) Loading new system with added ions...
+Info) Using plugin psf for structure file 5_ionzied.psf
+Info) Analyzing structure ...
+Info)    Atoms: 1400
+Info)    Bonds: 1413
+Info)    Angles: 2537  Dihedrals: 3642  Impropers: 121  Cross-terms: 33
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 63
+Info)    Waters: 6
+Info)    Segments: 4
+Info)    Fragments: 10   Protein: 1   Nucleic: 0
+Info) Using plugin pdb for coordinates from file 5_ionzied.pdb
+Info) Finished with coordinate file 5_ionzied.pdb.
+Info) Opened coordinate file 5_ionzied.pdb for writing.
+Info) Finished with coordinate file 5_ionzied.pdb.
+Autoionize) System net charge after adding ions: -0.9999994803220034e.
+Autoionize) All done.
+Info) VMD for WIN32, version 1.9.3 (November 30, 2016)
+Info) Exiting normally.
+vmd > psfplugin) Detected a Charmm PSF file
+psfplugin) Detected a Charmm PSF EXTEnded file
+psfplugin) Detected a Charmm PSF file
+psfplugin) Detected a Charmm PSF EXTEnded file
