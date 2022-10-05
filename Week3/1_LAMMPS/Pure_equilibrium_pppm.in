@@ -1,0 +1,241 @@
+################################################
+# Input file setup
+################################################
+units			real
+boundary		p p p
+box             tilt large
+atom_style		full
+variable        filename string Pure
+
+################################################
+# Non bonded and bonded interactions setup
+################################################
+pair_style 		lj/cut/coul/long 10 10
+pair_modify     mix arithmetic
+special_bonds   amber
+kspace_style 	pppm 1.0e-5
+kspace_modify   order 4 
+bond_style 		harmonic
+angle_style 	harmonic
+dihedral_style  charmm
+improper_style  cvff
+
+#read_data	    10_314_small.data
+read_data	    10_314.data
+
+################################################
+# Minimization
+################################################
+min_style      	cg 
+#minimize       	0.0 1.0e-8 1000000 10000000
+#write_data		minimized.data
+
+################################################
+# Group
+################################################
+# id ==> serial id: start from 1
+group	poly1	id	1:1902
+group	poly2	id	1903:3804
+group	poly3	id	3805:5706
+group	poly4	id	5707:7608
+group	poly5	id	7609:9510
+group	poly6	id	9511:11412
+group	poly7	id	11413:13314
+group	poly8	id	13315:15216
+group	poly9	id	15217:17118
+group	poly10	id	17119:19020
+group	li		id	39745:40134
+group	cl		id	40135:40524
+group	allpoly	union poly1 poly2 poly3 poly4 poly5 poly6 poly7 poly8 poly9 poly10
+group 	peg		subtract all poly1 poly2 poly3 poly4 poly5 poly6 poly7 poly8 poly9 poly10 li cl
+
+################################################
+# NPT tensile
+################################################
+variable		cfac 	equal 101.325	# to convert from atm to KPa
+variable		stress	equal -press*${cfac}
+variable		xstress equal -pxx*${cfac}
+variable		ystress equal -pyy*${cfac}
+variable		zstress equal -pzz*${cfac} 		  		
+
+#viral stress換算 (已經證實和stress tensor相同 這邊就不用了)
+#compute			stressatom monitor stress/atom NULL
+#compute			sta monitor reduce sum c_stressatom[*]
+#variable		fxx equal c_sta[1]*${cfac}/(lz*ly*v_middle_length)  # stress along x direction and convert from real to KPa
+
+################################################
+# Thermo
+################################################
+# PEG PHEMA Li Cl pair total
+compute     peg_pair        peg     pe/atom pair kspace
+compute     peg_pair_pe     peg     reduce sum c_peg_pair
+
+compute     allpoly_pair    allpoly pe/atom pair kspace
+compute     allpoly_pair_pe allpoly reduce sum c_allpoly_pair
+
+compute     li_pair         li      pe/atom pair kspace
+compute     li_pair_pe      li      reduce sum c_li_pair
+
+compute     cl_pair         cl      pe/atom pair kspace
+compute     cl_pair_pe      cl      reduce sum c_cl_pair
+
+# ke decompose
+compute		all_ke    all ke/atom
+compute     pegke     peg     reduce sum c_all_ke
+compute     phemake   allpoly reduce sum c_all_ke
+compute     like      li      reduce sum c_all_ke
+compute     clke      cl      reduce sum c_all_ke
+
+# peg_pair_pe decompose
+# compute		total        all     group/group all     kspace yes
+compute     peg          peg     group/group peg     kspace yes
+compute     phema        allpoly group/group allpoly kspace yes
+compute     li           li      group/group li      kspace yes
+compute     cl           cl      group/group cl      kspace yes
+compute     peg_allpoly  peg     group/group allpoly kspace yes molecule inter
+compute     peg_li       peg     group/group li      kspace yes molecule inter
+compute     peg_cl       peg     group/group cl      kspace yes molecule inter
+compute     phema_li     allpoly group/group li      kspace yes molecule inter
+compute     phema_cl     allpoly group/group cl      kspace yes molecule inter
+compute     li_cl        li      group/group cl      kspace yes molecule inter
+
+variable    peg_peg      equal   c_peg
+variable    peg_phema    equal   c_peg_allpoly/2
+variable    peg_li       equal   c_peg_li/2
+variable    peg_cl       equal   c_peg_cl/2
+variable    phema_phema  equal   c_phema
+variable    phema_li     equal   c_phema_li/2
+variable    phema_cl     equal   c_phema_cl/2
+variable    li_li        equal   c_li
+variable    li_cl        equal   c_li_cl/2
+variable    cl_cl        equal   c_cl
+
+# PEG bonded energy
+compute     pegpe		     peg pe/atom
+compute     peg_bond_nonbond peg reduce sum c_pegpe
+                            
+compute     pegpair          peg pe/atom pair
+compute     peg_pair_only    peg reduce sum c_pegpair
+                             
+compute     peg_bond         peg pe/atom bond
+compute     peg_bond_pe      peg reduce sum c_peg_bond
+                             
+compute     peg_angle        peg pe/atom angle
+compute     peg_angle_pe     peg reduce sum c_peg_angle
+                             
+compute     peg_dihedral     peg pe/atom dihedral
+compute     peg_dihedral_pe  peg reduce sum c_peg_dihedral
+                             
+compute     peg_improper     peg pe/atom improper
+compute     peg_improper_pe  peg reduce sum c_peg_improper
+                             
+compute     peg_kspace       peg pe/atom kspace
+compute     peg_kspace_pe    peg reduce sum c_peg_kspace
+                             
+compute     peg_fix          peg pe/atom fix
+compute     peg_fix_pe       peg reduce sum c_peg_fix
+
+# PHEMA bonded energy
+compute     phemape		       allpoly pe/atom
+compute     phema_bond_nonbond allpoly reduce sum c_phemape
+
+compute     phemapair          allpoly pe/atom pair
+compute     phema_pair_only    allpoly reduce sum c_phemapair
+
+compute     phema_bond         allpoly pe/atom bond
+compute     phema_bond_pe      allpoly reduce sum c_phema_bond
+
+compute     phema_angle        allpoly pe/atom angle
+compute     phema_angle_pe     allpoly reduce sum c_phema_angle
+
+compute     phema_dihedral     allpoly pe/atom dihedral
+compute     phema_dihedral_pe  allpoly reduce sum c_phema_dihedral
+
+compute     phema_improper     allpoly pe/atom improper
+compute     phema_improper_pe  allpoly reduce sum c_phema_improper
+
+compute     phema_kspace       allpoly pe/atom kspace
+compute     phema_kspace_pe    allpoly reduce sum c_phema_kspace
+
+compute     phema_fix          allpoly pe/atom fix
+compute     phema_fix_pe       allpoly reduce sum c_phema_fix
+
+# von mise stress
+compute		stressatom all stress/atom NULL virial 
+compute		peatom		all	    pe/atom
+variable 	volperatom	equal	1
+variable 	xx	atom 	c_stressatom[1]*${cfac}/${volperatom}  				#xx        #unit:Kpa
+variable 	yy	atom 	c_stressatom[2]*${cfac}/${volperatom}		        #yy        #unit:Kpa
+variable 	zz	atom 	c_stressatom[3]*${cfac}/${volperatom}               #zz        #unit:Kpa
+variable 	xy	atom 	c_stressatom[4]*${cfac}/${volperatom}               #xy        #unit:Kpa
+variable 	xz	atom 	c_stressatom[5]*${cfac}/${volperatom}               #xz        #unit:Kpa
+variable 	yz	atom 	c_stressatom[6]*${cfac}/${volperatom}               #yz        #unit:Kpa
+variable 	volmisestress	atom 	sqrt(0.5*((c_stressatom[1]-c_stressatom[2])^2+(c_stressatom[2]-c_stressatom[3])^2+(c_stressatom[3]-c_stressatom[1])^2+6*(c_stressatom[4]^2+c_stressatom[5]^2+c_stressatom[6]^2)))/${volperatom}      #unit:Mpa 
+
+thermo_style    custom step time temp enthalpy vol density         &
+lx ly lz press v_stress v_xstress v_ystress v_zstress              &
+etotal pe ke                                                       &
+pe epair emol                                                      &
+epair evdwl ecoul elong etail                                      &
+epair c_peg_pair_pe c_allpoly_pair_pe c_li_pair_pe c_cl_pair_pe    &
+c_peg_pair_pe v_peg_peg v_peg_phema v_peg_li v_peg_cl              &
+c_allpoly_pair_pe v_phema_phema v_peg_phema v_phema_li v_phema_cl  &
+c_li_pair_pe v_li_li v_li_cl v_peg_li v_phema_li                   &
+c_cl_pair_pe v_cl_cl v_li_cl v_peg_cl v_phema_cl                   &
+emol ebond eangle edihed eimp                                      &
+c_peg_bond_nonbond c_peg_pair_only c_peg_bond_pe c_peg_angle_pe c_peg_dihedral_pe c_peg_improper_pe c_peg_kspace_pe c_peg_fix_pe &
+c_phema_bond_nonbond c_phema_pair_only c_phema_bond_pe c_phema_angle_pe c_phema_dihedral_pe c_phema_improper_pe c_phema_kspace_pe c_phema_fix_pe &
+ke c_pegke c_phemake c_like c_clke  
+
+################################################
+# Run setup
+################################################
+# NPT 400K 
+neigh_modify 		every 1 delay 0
+fix 			1 all npt temp 400.0 400.0 $(100.0*dt) iso 1 1 1000
+
+# Prevent PPPM Error for 1ns / 1000000 step thermo 100 frame
+dump            1 all dcd 10000 ${filename}_pre_PPPM.dcd #每0.1ns output
+dump_modify     1 unwrap yes
+
+variable        a loop 100000
+label           loopa 
+run             20
+min_style      	cg 
+minimize       	0.0 1.0e-8 1000000 10000000
+write_data	${filename}_equilibrium_pre_PPPM.data
+next            a
+jump            SELF loopa
+
+write_data		${filename}_equilibrium_pre_PPPM.data
+undump          1
+
+# NPT 400K 5 ns / 5000000 step thermo 50 frame
+dump            1 all dcd 100000 ${filename}_equilibrium_400K_until_300K.dcd #每0.1ns output
+dump_modify     1 unwrap yes
+run             5000000
+
+# NPT 400K to 300K 5 ns / 5000000 step thermo 50 frame
+fix 			1 all npt temp 400.0 300.0 $(100.0*dt) iso 1 1 1000
+run             5000000
+write_data		${filename}_equilibrium_middle.data
+undump			1
+
+# NPT 300K 50 ns / 50000000 step thermo 500 frame
+# Restart setup
+restart 		1000000 ./restart/*.restart 
+neigh_modify 	every 1 delay 10
+fix 			1 all npt temp 300.0 300.0 $(100.0*dt) iso 1 1 1000
+dump            1 all dcd 100000 ${filename}_equilibrium_NPT_300K.dcd #每0.1ns output
+dump_modify     1 unwrap yes
+run             50000000
+write_data		${filename}_equilibrium_NPT_end.data
+undump			1
+
+# NVT 300K 50 ns / 50000000 step thermo 500 frame
+fix 			1 all nvt temp 300.0 300.0 $(100.0*dt)
+dump            1 all dcd 100000 ${filename}_equilibrium_NVT_300K.dcd #每0.1ns output
+dump_modify     1 unwrap yes
+run             50000000
+write_data		${filename}_equilibrium_NVT_end.data
+
